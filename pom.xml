@@ -2,7 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.swagger</groupId>
     <artifactId>swagger-petstore</artifactId>
-    <packaging>war</packaging>
+    <!-- <packaging>war</packaging> -->
+    <packaging>jar</packaging>
     <name>swagger-petstore</name>
     <description>swagger-petstore</description>
     <url>https://github.com/swagger-api/swagger-petstore</url>
@@ -177,14 +178,16 @@
     <dependencies>
         <!-- JPA -->
         <dependency>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.7.18</version>
         </dependency>
 
         <!-- PostgreSQL driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
             <scope>runtime</scope>
         </dependency>
 

@@ -1,18 +1,29 @@
-version: '3.8'
-
+#version: '3.8'
 services:
   postgres:
-    image: postgres:14
-    container_name: petstore-db
+    image: postgres:15
+    container_name: postgres
+    restart: always
     environment:
       POSTGRES_DB: petstore1
-      POSTGRES_USER: petstore_1user
-      POSTGRES_PASSWORD: petstore_1pass
+      POSTGRES_USER: petuser1
+      POSTGRES_PASSWORD: petpass1
     ports:
       - "5432:5432"
     volumes:
-      - petstore_data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+ 
+  petstore-api:
+    build: .
+    container_name: petstore-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/petstore1
+      SPRING_DATASOURCE_USERNAME: petstore_1user
+      SPRING_DATASOURCE_PASSWORD: petstore_1pass
 
 volumes:
-  petstore_data:
-
+  postgres-data:
