@@ -1,6 +1,5 @@
-package io.swagger.repo;
+package io.swagger;
 
-import io.swagger.model.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
